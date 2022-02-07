@@ -1,1 +1,0 @@
-# Accordion-internship-Nikola-Cvetic

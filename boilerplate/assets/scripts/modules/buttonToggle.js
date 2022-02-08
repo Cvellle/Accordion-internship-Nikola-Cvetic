@@ -4,24 +4,12 @@ function buttonToggle() {
 
   const toggleContent = (e) => {
     // targeted elements
+      let parent = e.currentTarget.parentElement; 
+      let targetedTextContent = e.currentTarget.nextElementSibling;
+      let targetedImage = e.currentTarget.lastChild;
 
     // toggle actions
-    // 1. dynamicly adds max-height
-
-    let targetedTextContent = null;
-    let parent = null;
-    let targetedImage = null;
-
-    if (!e.target.classList.contains('button-title')) {
-      parent = e.target.parentElement.parentElement; 
-      targetedTextContent = e.target.parentElement.nextElementSibling;
-      targetedImage = e.target;
-    } else {
-      parent = e.target.parentElement; 
-      targetedTextContent = e.target.nextElementSibling;
-      targetedImage = e.target.lastChild;
-    }
-    
+    // 1. dynamicly adds max-height    
     if (!parent.classList.contains('button-block--open')) {
       parent.classList.add('button-block--open');
       targetedImage.classList.add('button-image--rotated');
@@ -35,7 +23,7 @@ function buttonToggle() {
     // 2. bold text
     buttonBlocks.forEach(el => el.classList.remove('button-title--active'));
     
-    e.target.classList.toggle('button-title--active');
+    e.currentTarget.classList.toggle('button-title--active');
   }
   // add event listeners
   buttonTitles.forEach(el => el.addEventListener('click', toggleContent));
